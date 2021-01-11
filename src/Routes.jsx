@@ -1,16 +1,19 @@
-import React from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Home from './_pages/Home';
+import WebLayout from "../src/_components/_layout/WebLayout";
+import Home from "./_pages/Home";
 
 function Routes() {
-	return (
-		<BrowserRouter>
-			<Switch>
-				<Route exact path="/" component={Home} />
-			</Switch>
-		</BrowserRouter>
-	);
+  return (
+    <BrowserRouter>
+      <WebLayout>
+        <Switch>
+          <Route exact path="/" component={Home} />
+        </Switch>
+      </WebLayout>
+    </BrowserRouter>
+  );
 }
 
 export default Routes;
