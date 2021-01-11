@@ -1,6 +1,6 @@
-import Car1 from "../_assets/images/car1.jpg";
+import Car1 from "../_images/car1.jpg";
 
-export const HomeData = {
+export const WebMenuData = {
   menuItem1: "Advertisers",
   menuItem2: "Drivers",
 };

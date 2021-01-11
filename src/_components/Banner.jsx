@@ -11,7 +11,7 @@ function changeBackground({ imgPath }) {
 
 
 export const Item = styled.div`
-  height: 660px;
+  height: 600px;
   background-size: cover !important;
   background-repeat: no-repeat;
   background-position: center !important;
