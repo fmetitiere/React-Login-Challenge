@@ -45,9 +45,9 @@ export default function Banner({ bannerData, title1, title2, text }) {
       </Carousel>
       <Wrapper>
         <Info>
-          <H2>{title1}</H2>
-          <H2>{title2}</H2>
-          <P>{text}</P>
+          <H2 upper bold contrast>{title1}</H2>
+          <H2 secondary contrast>{title2}</H2>
+          <P contrast>{text}</P>
         </Info>
       </Wrapper>
     </>

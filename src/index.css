@@ -7,7 +7,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: "Dyngo";
+  src: url("_components/_assets/font/cocogoose-regular.woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Dyngo";
+  src: url("_components/_assets/font/cocogoose-bold.woff2");
+  font-style: bold;
+  font-weight: 800;
 }

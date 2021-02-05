@@ -2,18 +2,19 @@ import React from "react";
 
 import { HomeMenuData } from "../../../_messages";
 import { Navbar, NavbarContainer, Content } from "./styles";
-import Icon from '../../Icon';
+import { LinkComp } from "../../../_components/_styles";
+import Icon from "../../Icon";
 
 export default function WebLayout({ children }) {
   return (
     <>
       <Navbar>
         <NavbarContainer>
-          <Icon name="logo"/>
+          <Icon name="logo" />
           <div>
-            <a href="google.com">Home</a>
-            <a href="google.com">{HomeMenuData.menuItem1}</a>
-            <a href="google.com">{HomeMenuData.menuItem2}</a>
+            <LinkComp to="google.com">Home</LinkComp>
+            <LinkComp to="google.com">{HomeMenuData.menuItem1}</LinkComp>
+            <LinkComp to="google.com">{HomeMenuData.menuItem2}</LinkComp>
           </div>
         </NavbarContainer>
       </Navbar>

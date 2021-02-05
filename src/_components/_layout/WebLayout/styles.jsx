@@ -6,6 +6,7 @@ export const Navbar = styled.div`
   width: 100%;
   position: fixed;
   display: flex;
+  z-index: 199;
 `;
 
 export const NavbarContainer = styled.div`
