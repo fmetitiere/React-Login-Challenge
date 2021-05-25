@@ -19,4 +19,19 @@ export const BannerHome = [
   {
     image: Car1,
   },
+  {
+    image: Car1,
+  },
+  {
+    image: Car1,
+  },
+  {
+    image: Car1,
+  },
+  {
+    image: Car1,
+  },
+  {
+    image: Car1,
+  },
 ];

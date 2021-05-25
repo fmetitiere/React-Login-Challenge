@@ -9,7 +9,9 @@ function Routes() {
     <BrowserRouter>
       <WebLayout>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/">
+            <Home />
+          </Route>
         </Switch>
       </WebLayout>
     </BrowserRouter>
