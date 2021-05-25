@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 
+import { UserNameReducer } from "./githubReducer";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
+
 import Routes from "./Routes";
 import {
   ThemeButtons,
@@ -28,6 +32,8 @@ const ButtonStyled = styled.button`
 
   line-height: 0;
 `;
+
+const store = createStore(UserNameReducer);
 
 function App() {
   const [themeId, setThemeId] = useState(ThemeLight.id);
@@ -63,10 +69,12 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={changeTheme(themeId)}>
-      <ButtonsSelector />
-      <Routes />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={changeTheme(themeId)}>
+        <ButtonsSelector />
+        <Routes />
+      </ThemeProvider>
+    </Provider>
   );
 }
 
