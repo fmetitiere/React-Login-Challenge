@@ -13,9 +13,10 @@ const BackgroundWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   border-radius: 2rem;
   overflow: hidden;
-  background: rgb(0 0 0 / 95%);
+  background: ${({theme}) => theme.BackgroundColor};
 `;
 
 export function Content({ children }) {

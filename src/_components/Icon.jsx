@@ -6,6 +6,11 @@ const LogoWrapper = styled.div`
   div {
     display: flex;
   }
+  svg{
+    fill: ${({theme}) => theme.iconColor};
+    width: 4rem;
+    height: 4rem;
+  }
 `;
 
 const IconWrapper = styled.div`

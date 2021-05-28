@@ -1,17 +1,20 @@
 import React, { useState } from "react";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
 
-import { UserNameReducer } from "./githubReducer";
+import { createStore, applyMiddleware } from "redux";
+import usersReducer from "./_github/reducer";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 
 import Routes from "./Routes";
-import {
-  ThemeButtons,
-  ThemeLight,
-  Themes,
-} from "../src/_components/_layout/DefaultTheme";
+import { ThemeButtons, ThemeLight, Themes } from "./_components/_layout/Themes";
+
+import BackgroundAnimation from "./_components/_layout/BackgroundAnimation";
+import {Content} from "./_components/_styles";
+
+const store = createStore(usersReducer, applyMiddleware(thunk));
 
 const ButtonWrapper = styled.div`
   background: rgba(0, 0, 0, 0.8);
@@ -32,8 +35,6 @@ const ButtonStyled = styled.button`
 
   line-height: 0;
 `;
-
-const store = createStore(UserNameReducer);
 
 function App() {
   const [themeId, setThemeId] = useState(ThemeLight.id);
@@ -71,8 +72,12 @@ function App() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={changeTheme(themeId)}>
-        <ButtonsSelector />
-        <Routes />
+        <BackgroundAnimation>
+          <Content>
+            <ButtonsSelector />
+            <Routes />
+          </Content>
+        </BackgroundAnimation>
       </ThemeProvider>
     </Provider>
   );
