@@ -3,6 +3,8 @@ export const ThemeLight = {
   BackgroundColor: "rgb(255 255 255 / 98%);",
   iconColor: "black",
   fontColor: "black",
+  buttonColor: "#2a4b72",
+  userBoxColor: "#e2e2e2",
   fontFamily: "KoHo, sans-serif",
 };
 
@@ -11,19 +13,21 @@ export const ThemeDark = {
   BackgroundColor: "rgb(0 0 0 / 98%);",
   iconColor: "white",
   fontColor: "white",
+  buttonColor: "#2a4b72",
+  userBoxColor: "#444444",
   fontFamily: "KoHo, sans-serif",
 };
 
 export const ThemeButtons = [
   {
     id: ThemeLight.id,
-    background: "#0971ce",
+    background: "white",
     color: "white",
     name: "Light",
   },
   {
     id: ThemeDark.id,
-    background: "#0971ce",
+    background: "black",
     color: "white",
     name: "Dark",
   },

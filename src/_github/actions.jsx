@@ -1,13 +1,13 @@
 import axios from "axios";
 
-export const fetchUsers = (login) => async (dispatch, getState) => {
+export const fetchUsers = (login, order) => async (dispatch, getState) => {
   dispatch(fetchUsersRequest());
 
   const nextPage = getState().currentPage;
 
   try {
     const response = await axios.get(
-      `https://api.github.com/search/users?q=${login}&page=1&per_page=9&sort=joined&order=`
+      `https://api.github.com/search/users?q=${login}&page=1&per_page=9&sort=joined&sort=joined&order=${order}`
     );
 
     dispatch(
@@ -28,10 +28,12 @@ export const nextPage = () => async (dispatch, getState) => {
 
   const nextPage = getState().currentPage + 1;
   const userName = getState().userName;
+  const order = getState().order;
+
 
   try {
     const response = await axios.get(
-      `https://api.github.com/search/users?q=${userName}&page=${nextPage}&per_page=9`
+      `https://api.github.com/search/users?q=${userName}&page=${nextPage}&per_page=9&sort=joined&order=${order}`
     );
 
     dispatch(setCurrentPage(nextPage));
@@ -40,7 +42,8 @@ export const nextPage = () => async (dispatch, getState) => {
         response.data.items,
         userName,
         response.data.total_count,
-        nextPage
+        nextPage,
+        order
       )
     );
   } catch (error) {
@@ -53,10 +56,12 @@ export const previousPage = () => async (dispatch, getState) => {
 
   const previousPage = getState().currentPage - 1;
   const userName = getState().userName;
+  const order = getState().order;
+
 
   try {
     const response = await axios.get(
-      `https://api.github.com/search/users?q=${userName}&page=${previousPage}&per_page=9`
+      `https://api.github.com/search/users?q=${userName}&page=${previousPage}&per_page=9&sort=joined&order=${order}`
     );
 
     dispatch(setCurrentPage(previousPage));
@@ -65,7 +70,8 @@ export const previousPage = () => async (dispatch, getState) => {
         response.data.items,
         userName,
         response.data.total_count,
-        previousPage
+        previousPage,
+        order
       )
     );
   } catch (error) {
@@ -73,14 +79,15 @@ export const previousPage = () => async (dispatch, getState) => {
   }
 };
 
+
 const fetchUsersRequest = () => {
   return { type: "FETCH_USERS_REQUEST" };
 };
 
-const fetchUsersSuccess = (items, userName, totalCount, currentPage) => {
+const fetchUsersSuccess = (items, userName, totalCount, currentPage, order) => {
   return {
     type: "FETCH_USERS_SUCCESS",
-    payload: { items, userName, totalCount, currentPage },
+    payload: { items, userName, totalCount, currentPage, order },
   };
 };
 

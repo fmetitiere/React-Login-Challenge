@@ -12,28 +12,30 @@ import Routes from "./Routes";
 import { ThemeButtons, ThemeLight, Themes } from "./_components/_layout/Themes";
 
 import BackgroundAnimation from "./_components/_layout/BackgroundAnimation";
-import {Content} from "./_components/_styles";
+import { Content } from "./_components/_styles";
 
 const store = createStore(usersReducer, applyMiddleware(thunk));
 
 const ButtonWrapper = styled.div`
-  background: rgba(0, 0, 0, 0.8);
-
+  background: ${({ theme }) => theme.BackgroundColor};
   position: absolute;
   display: flex;
   padding: 0.3rem;
-  flex-direction: column;
   z-index: 199;
   right: 0;
-  top: 12rem;
-  border-radius: 0.5rem 0 0 0.5rem;
+  top: -2rem;
+  border-radius: 0.5rem 0.5rem 0 0;
 `;
 
 const ButtonStyled = styled.button`
   background: ${(props) => props.background};
-  color: ${(props) => props.color};
-
   line-height: 0;
+  border: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50rem;
+  margin: 0 0.2rem;
+  cursor: pointer;
 `;
 
 function App() {
@@ -51,9 +53,7 @@ function App() {
         color={element.color}
         value={element.id}
         onClick={handleOnClick}
-      >
-        {element.name}
-      </ButtonStyled>
+      ></ButtonStyled>
     ));
   };
 
