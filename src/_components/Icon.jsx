@@ -6,8 +6,8 @@ const LogoWrapper = styled.div`
   div {
     display: flex;
   }
-  svg{
-    fill: ${({theme}) => theme.iconColor};
+  svg {
+    fill: ${({ theme }) => theme.iconColor};
     width: 4rem;
     height: 4rem;
   }
@@ -16,6 +16,11 @@ const LogoWrapper = styled.div`
 const IconWrapper = styled.div`
   div {
     display: flex;
+  }
+  svg {
+    fill: ${({ theme }) => theme.iconColor};
+    width: 1.5rem;
+    height: 1.5rem;
   }
 `;
 
@@ -26,6 +31,12 @@ export default function Icon({ name }) {
         <LogoWrapper>
           <ReactSVG src="_assets/icons/logo.svg" />
         </LogoWrapper>
+      );
+    case "eye":
+      return (
+        <IconWrapper>
+          <ReactSVG src="_assets/icons/eye.svg" />
+        </IconWrapper>
       );
     default:
       return (

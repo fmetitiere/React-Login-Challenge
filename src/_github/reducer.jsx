@@ -5,7 +5,7 @@ const initState = {
   currentPage: 1,
   userName: undefined,
   totalCount: 0,
-  order: "",
+  order: "desc",
 };
 
 const usersReducer = (state = initState, action) => {
@@ -15,6 +15,8 @@ const usersReducer = (state = initState, action) => {
         ...state,
         loading: true,
         error: null,
+        totalCount: 0,
+        currentPage: 1,
       };
     case "FETCH_USERS_SUCCESS":
       return {
@@ -32,14 +34,7 @@ const usersReducer = (state = initState, action) => {
         error: action.error,
       };
     case "FETCH_USERS_CLEAR":
-      return {
-        ...state,
-        loading: false,
-        error: null,
-        items: [],
-        currentPage: 1,
-        totalCount: 0,
-      };
+      return initState;
     case "SET_CURRENT_PAGE":
       return {
         ...state,
