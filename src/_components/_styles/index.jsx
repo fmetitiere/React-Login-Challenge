@@ -50,7 +50,7 @@ export const P = styled.p`
   margin-bottom: 0;
 `;
 
-export const Button = styled.button`
+export const PrimaryButton = styled.button`
   font-family: ${getFontFamily};
   background: ${({ theme }) => theme.buttonColor};
   border: 0;
@@ -60,7 +60,26 @@ export const Button = styled.button`
   font-size: 1rem;
   margin: 0 0 0 0.5rem;
   cursor: pointer;
+  @media (max-width: 767px) {
+    width: 100%;
+    margin: 0;
+  }
 `;
+
+export const SecondaryButton = styled(PrimaryButton)`
+  border: 1px solid ${({ theme }) => theme.secondaryButtonColor};
+  background: transparent;
+  font-weight: bold;
+  color: ${({ theme }) => theme.secondaryFontColor};
+`;
+
+export function Button({ children, secondary, ...props }) {
+  return (
+    (secondary && <SecondaryButton {...props}>{children}</SecondaryButton>) || (
+      <PrimaryButton {...props}>{children}</PrimaryButton>
+    )
+  );
+}
 
 export const TextField = styled.input`
   border: 0;
@@ -77,6 +96,11 @@ export const TextField = styled.input`
 const BackgroundWrapper = styled.div`
   width: 35rem;
   height: 50rem;
+  @media (max-width: 767px) {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+  }
   z-index: 1999;
   position: absolute;
   left: 0;
@@ -89,6 +113,9 @@ const BackgroundWrapper = styled.div`
   justify-content: flex-start;
   flex-direction: column;
   border-radius: 2rem 0 2rem 2rem;
+  @media (max-width: 767px) {
+    border-radius: 0;
+  }
   padding: 2rem;
   background: ${({ theme }) => theme.BackgroundColor};
 `;

@@ -20,10 +20,13 @@ const ButtonWrapper = styled.div`
   background: ${({ theme }) => theme.BackgroundColor};
   position: absolute;
   display: flex;
-  padding: 0.3rem;
+  padding: 0.5rem;
   z-index: 199;
   right: 0;
   top: -2rem;
+  @media(max-width: 767px){
+    top: 0rem;
+  }
   border-radius: 0.5rem 0.5rem 0 0;
 `;
 

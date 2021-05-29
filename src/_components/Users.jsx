@@ -12,7 +12,11 @@ const UserHeader = styled.div`
   grid-template-columns: 1fr 3fr 2fr;
   grid-column-gap: 1rem;
   margin-bottom: 0.5rem;
+  padding: 0 0.5rem;
   width: 25rem;
+  @media(max-width: 767px){
+    width: 100%;
+  }
 `;
 
 const UsersBody = styled.div`
@@ -23,6 +27,13 @@ const UsersBody = styled.div`
 
 const ButtonsWrapper = styled.div`
   display: flex;
+  margin: 1rem 0;
+  @media(max-width: 767px){
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+  }
+
 `;
 
 const Users = () => {

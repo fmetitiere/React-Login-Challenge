@@ -4,6 +4,8 @@ export const ThemeLight = {
   iconColor: "black",
   fontColor: "black",
   buttonColor: "#2a4b72",
+  secondaryButtonColor: "#2a4b72",
+  secondaryFontColor: "#2a4b72",
   userBoxColor: "#e2e2e2",
   fontFamily: "KoHo, sans-serif",
 };
@@ -14,6 +16,8 @@ export const ThemeDark = {
   iconColor: "white",
   fontColor: "white",
   buttonColor: "#2a4b72",
+  secondaryButtonColor: "white",
+  secondaryFontColor: "white",
   userBoxColor: "#444444",
   fontFamily: "KoHo, sans-serif",
 };

@@ -27,12 +27,6 @@ export default function Icon({ name }) {
           <ReactSVG src="_assets/icons/logo.svg" />
         </LogoWrapper>
       );
-    case "iconExample":
-      return (
-        <IconWrapper>
-          <ReactSVG src="_assets/icons/logo.svg" />
-        </IconWrapper>
-      );
     default:
       return (
         <IconWrapper>

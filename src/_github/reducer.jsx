@@ -37,6 +37,7 @@ const usersReducer = (state = initState, action) => {
         loading: false,
         error: null,
         items: [],
+        currentPage: 1,
         totalCount: 0,
       };
     case "SET_CURRENT_PAGE":

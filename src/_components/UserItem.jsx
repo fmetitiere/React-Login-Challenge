@@ -12,6 +12,9 @@ const UserWrapper = styled.div`
   padding: 0.5rem;
   border-radius: 1rem;
   width: 25rem;
+  @media(max-width: 767px){
+    width: 100%;
+  }
   p {
     align-self: center;
   }
