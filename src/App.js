@@ -1,39 +1,45 @@
 import React, { useState } from "react";
-import { createStore } from "redux";
-import { Provider } from "react-redux";
 
-import { UserNameReducer } from "./githubReducer";
+import { createStore, applyMiddleware } from "redux";
+import usersReducer from "./_github/reducer";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 
 import Routes from "./Routes";
-import {
-  ThemeButtons,
-  ThemeLight,
-  Themes,
-} from "../src/_components/_layout/DefaultTheme";
+import { ThemeButtons, ThemeLight, Themes } from "./_components/_layout/Themes";
+
+import BackgroundAnimation from "./_components/_layout/BackgroundAnimation";
+import { Content } from "./_components/_styles";
+
+const store = createStore(usersReducer, applyMiddleware(thunk));
 
 const ButtonWrapper = styled.div`
-  background: rgba(0, 0, 0, 0.8);
-
+  background: ${({ theme }) => theme.BackgroundColor};
   position: absolute;
   display: flex;
-  padding: 0.3rem;
-  flex-direction: column;
+  padding: 0.5rem;
   z-index: 199;
   right: 0;
-  top: 12rem;
-  border-radius: 0.5rem 0 0 0.5rem;
+  top: -2rem;
+  @media(max-width: 767px){
+    top: 0rem;
+  }
+  border-radius: 0.5rem 0.5rem 0 0;
 `;
 
 const ButtonStyled = styled.button`
   background: ${(props) => props.background};
-  color: ${(props) => props.color};
-
   line-height: 0;
+  border: 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50rem;
+  margin: 0 0.2rem;
+  cursor: pointer;
 `;
-
-const store = createStore(UserNameReducer);
 
 function App() {
   const [themeId, setThemeId] = useState(ThemeLight.id);
@@ -50,9 +56,7 @@ function App() {
         color={element.color}
         value={element.id}
         onClick={handleOnClick}
-      >
-        {element.name}
-      </ButtonStyled>
+      ></ButtonStyled>
     ));
   };
 
@@ -71,8 +75,12 @@ function App() {
   return (
     <Provider store={store}>
       <ThemeProvider theme={changeTheme(themeId)}>
-        <ButtonsSelector />
-        <Routes />
+        <BackgroundAnimation>
+          <Content>
+            <ButtonsSelector />
+            <Routes />
+          </Content>
+        </BackgroundAnimation>
       </ThemeProvider>
     </Provider>
   );
