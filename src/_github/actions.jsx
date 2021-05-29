@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const fetchUsers = (login, order) => async (dispatch, getState) => {
+
   dispatch(fetchUsersRequest());
 
   const nextPage = getState().currentPage;

@@ -9,7 +9,7 @@ import UserItem from "../_components/UserItem";
 
 const UserHeader = styled.div`
   display: grid;
-  grid-template-columns: 1fr 3fr 2fr;
+  grid-template-columns: 1fr 3fr 2fr 1fr;
   grid-column-gap: 1rem;
   margin-bottom: 0.5rem;
   padding: 0 0.5rem;
@@ -53,7 +53,7 @@ const Users = () => {
     return state.items.map((e) => {
       return (
         <>
-          <UserItem avatar={e.avatar_url} login={e.login} item={e.type} />
+          <UserItem avatar={e.avatar_url} login={e.login} item={e.type} url={e.html_url} />
         </>
       );
     });
@@ -66,6 +66,7 @@ const Users = () => {
           <P>Avatar</P>
           <P>Login</P>
           <P>Type</P>
+          <P>Link</P>
         </UserHeader>
       )}
       {renderPosts()}

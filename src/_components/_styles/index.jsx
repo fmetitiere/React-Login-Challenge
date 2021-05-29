@@ -93,9 +93,49 @@ export const TextField = styled.input`
   }
 `;
 
+export const RadioWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  label {
+    color: ${(props) => props.theme.fontColor};
+    font-family: ${getFontFamily};
+    font-size: 1rem;
+  }
+  > div {
+    margin-right: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+  margin-top: 0.5rem;
+
+  input {
+    margin-right: 0.5rem;
+  }
+
+  input[type="radio"]:after {
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 15px;
+    top: -2px;
+    left: -2px;
+    position: relative;
+    background-color: ${({theme}) => theme.userBoxColor};
+    content: "";
+    display: inline-block;
+    visibility: visible;
+    border: 2px solid white;
+    cursor: pointer;
+  }
+
+  input[type="radio"]:checked:after {
+    background-color: ${({theme}) => theme.fontColor};
+  }
+`;
+
 const BackgroundWrapper = styled.div`
   width: 35rem;
-  height: 50rem;
+  height: 52rem;
+  max-height: 55rem;
   @media (max-width: 767px) {
     width: 100%;
     height: 100%;
