@@ -134,8 +134,11 @@ export const RadioWrapper = styled.div`
 
 const BackgroundWrapper = styled.div`
   width: 35rem;
-  height: 52rem;
+  height: 49rem;
   max-height: 55rem;
+  @media (min-width: 768px) and (max-width: 1440px){
+    height: 46rem;
+  }
   @media (max-width: 767px) {
     width: 100%;
     height: 100%;

@@ -12,9 +12,9 @@ const UserHeader = styled.div`
   grid-template-columns: 1fr 3fr 2fr 1fr;
   grid-column-gap: 1rem;
   margin-bottom: 0.5rem;
-  padding: 0 0.5rem;
+  0 1.4rem 0 0;
   width: 25rem;
-  @media(max-width: 767px){
+  @media (max-width: 767px) {
     width: 100%;
   }
 `;
@@ -25,15 +25,26 @@ const UsersBody = styled.div`
   align-items: center;
 `;
 
+const UsersView = styled.div`
+  overflow-y: scroll;
+  height: 28rem;
+  width: 100%;
+  @media (max-width: 767px){
+    height: 26rem;
+  }
+  @media (min-width: 768px) and (max-width: 1440px){
+    height: 25rem;
+  }
+`;
+
 const ButtonsWrapper = styled.div`
   display: flex;
   margin: 1rem 0;
-  @media(max-width: 767px){
+  @media (max-width: 767px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 1rem;
   }
-
 `;
 
 const Users = () => {
@@ -42,10 +53,6 @@ const Users = () => {
   const state = useSelector((state) => state);
 
   const renderPosts = () => {
-    if (state.loading) {
-      return <Loader />;
-    }
-
     if (state.error) {
       return <H2 bold>Rate limit exceeded</H2>;
     }
@@ -53,7 +60,12 @@ const Users = () => {
     return state.items.map((e) => {
       return (
         <>
-          <UserItem avatar={e.avatar_url} login={e.login} item={e.type} url={e.html_url} />
+          <UserItem
+            avatar={e.avatar_url}
+            login={e.login}
+            item={e.type}
+            url={e.html_url}
+          />
         </>
       );
     });
@@ -69,7 +81,9 @@ const Users = () => {
           <P>Link</P>
         </UserHeader>
       )}
-      {renderPosts()}
+
+      {state.loading && <Loader />}
+      {state.totalCount > 1 && <UsersView>{renderPosts()}</UsersView>}
 
       <ButtonsWrapper>
         {state.currentPage >= 2 && (
