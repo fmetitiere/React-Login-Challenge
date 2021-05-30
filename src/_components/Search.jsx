@@ -84,7 +84,6 @@ const Search = () => {
               id="order"
               name="order"
               value="desc"
-              checked="checked"
             />
             <label for="asc">Desc</label>
           </div>
