@@ -12,7 +12,7 @@ const UserHeader = styled.div`
   grid-template-columns: 1fr 3fr 2fr 1fr;
   grid-column-gap: 1rem;
   margin-bottom: 0.5rem;
-  0 1.4rem 0 0;
+  padding:0 1.4rem 0 0;
   width: 25rem;
   @media (max-width: 767px) {
     width: 100%;
