@@ -83,7 +83,7 @@ const Users = () => {
       )}
 
       {state.loading && <Loader />}
-      {state.totalCount > 1 && <UsersView>{renderPosts()}</UsersView>}
+      {state.totalCount >= 1 && <UsersView>{renderPosts()}</UsersView>}
 
       <ButtonsWrapper>
         {state.currentPage >= 2 && (
