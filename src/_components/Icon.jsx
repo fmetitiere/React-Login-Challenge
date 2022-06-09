@@ -32,12 +32,6 @@ export default function Icon({ name }) {
           <ReactSVG src="_assets/icons/logo.svg" />
         </LogoWrapper>
       );
-    case "eye":
-      return (
-        <IconWrapper>
-          <ReactSVG src="_assets/icons/eye.svg" />
-        </IconWrapper>
-      );
     case "user":
       return (
         <IconWrapper>

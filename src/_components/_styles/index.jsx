@@ -33,25 +33,7 @@ export const H1 = styled.h1`
   margin-bottom: 0rem;
 `;
 
-export const H2 = styled.h2`
-  font-size: 1.5rem;
-  font-family: ${getFontFamily};
-  font-weight: ${fontWeight};
-  text-transform: ${fontUppercase};
-  color: ${(props) => props.theme.fontColor};
-  margin-bottom: 0rem;
-`;
-
-export const P = styled.p`
-  font-size: 1rem;
-  font-family: ${getFontFamily};
-  font-weight: ${fontWeight};
-  text-transform: ${fontUppercase};
-  color: ${(props) => props.theme.fontColor};
-  margin-bottom: 0;
-`;
-
-export const PrimaryButton = styled.button`
+export const Button = styled.button`
   font-family: ${getFontFamily};
   background: ${({ theme }) => theme.buttonColor};
   border: 0;
@@ -65,25 +47,10 @@ export const PrimaryButton = styled.button`
   margin: 0;
 `;
 
-export const SecondaryButton = styled(PrimaryButton)`
-  border: 1px solid ${({ theme }) => theme.secondaryButtonColor};
-  background: transparent;
-  font-weight: bold;
-  color: ${({ theme }) => theme.secondaryFontColor};
-`;
-
-export function Button({ children, secondary, ...props }) {
-  return (
-    (secondary && <SecondaryButton {...props}>{children}</SecondaryButton>) || (
-      <PrimaryButton {...props}>{children}</PrimaryButton>
-    )
-  );
-}
-
 export const TextField = styled.input`
   border: 0;
   width: 100%;
- 
+
   font-size: 1rem;
   color: ${(props) => props.theme.fontColor};
   outline: 0;
