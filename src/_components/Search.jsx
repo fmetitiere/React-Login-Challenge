@@ -7,6 +7,7 @@ import { Button, TextField, RadioWrapper } from "../_components/_styles";
 
 const FormWrapper = styled.div`
   margin-bottom: 1.5rem;
+  width: 100%;
   .container {
     display: flex;
   }

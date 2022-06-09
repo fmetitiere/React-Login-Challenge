@@ -1,10 +1,5 @@
 import React, { useState } from "react";
 
-import { createStore, applyMiddleware } from "redux";
-import usersReducer from "./_github/reducer";
-import { Provider } from "react-redux";
-import thunk from "redux-thunk";
-
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 
@@ -14,8 +9,6 @@ import { ThemeButtons, ThemeLight, Themes } from "./_components/_layout/Themes";
 import BackgroundAnimation from "./_components/_layout/BackgroundAnimation";
 import { Content } from "./_components/_styles";
 
-const store = createStore(usersReducer, applyMiddleware(thunk));
-
 const ButtonWrapper = styled.div`
   background: ${({ theme }) => theme.BackgroundColor};
   position: absolute;
@@ -24,7 +17,7 @@ const ButtonWrapper = styled.div`
   z-index: 199;
   right: 0;
   top: -2rem;
-  @media(max-width: 767px){
+  @media (max-width: 767px) {
     top: 0rem;
   }
   border-radius: 0.5rem 0.5rem 0 0;
@@ -73,16 +66,14 @@ function App() {
   };
 
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={changeTheme(themeId)}>
-        <BackgroundAnimation>
-          <Content>
-            <ButtonsSelector />
-            <Routes />
-          </Content>
-        </BackgroundAnimation>
-      </ThemeProvider>
-    </Provider>
+    <ThemeProvider theme={changeTheme(themeId)}>
+      <BackgroundAnimation>
+        <Content>
+          <ButtonsSelector />
+          <Routes />
+        </Content>
+      </BackgroundAnimation>
+    </ThemeProvider>
   );
 }
 

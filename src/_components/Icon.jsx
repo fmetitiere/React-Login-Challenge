@@ -38,6 +38,18 @@ export default function Icon({ name }) {
           <ReactSVG src="_assets/icons/eye.svg" />
         </IconWrapper>
       );
+    case "user":
+      return (
+        <IconWrapper>
+          <ReactSVG src="_assets/icons/user.svg" />
+        </IconWrapper>
+      );
+    case "pass":
+      return (
+        <IconWrapper>
+          <ReactSVG src="_assets/icons/password.svg" />
+        </IconWrapper>
+      );
     default:
       return (
         <IconWrapper>

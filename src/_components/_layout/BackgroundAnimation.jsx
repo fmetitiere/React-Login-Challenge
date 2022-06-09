@@ -37,7 +37,7 @@ class Animation extends React.Component {
       <>
         <Lottie
           isClickToPauseDisabled={true}
-          speed={0.2}
+          speed={0.3}
           options={defaultOptions}
           height={"100%"}
           width={"100%"}
